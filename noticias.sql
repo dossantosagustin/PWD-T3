@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-03-2026 a las 00:34:14
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 30-04-2026 a las 23:29:09
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,8 @@ CREATE TABLE `comodin` (
 --
 
 INSERT INTO `comodin` (`ID_comodin`, `ID_tecnologia`, `titulo`, `Contenido`, `imagen`, `link_referencia`, `activo`, `orden`, `seccion`) VALUES
-(5, 7, '', '<h4><U>Las tres leyes de la robótica</U></h4> \r\n<li>Primera Ley Un robot no hará daño a un ser humano, ni por inacción permitirá que un ser humano sufra daño.</li>\r\n<li>Segunda Ley Un robot debe cumplir las órdenes dadas por los seres humanos, a excepción de aquellas que entren en conflicto con la primera ley.</li>\r\n<li>Tercera Ley Un robot debe proteger su propia existencia en la medida en que esta protección no entre en conflicto con la primera o con la segunda ley.</li><br><br>\r\n\r\n<B>Aparecidas por primera vez en el relato de ISAAC ASIMOV Círculo vicioso (Runaround) de 1942</B><br><br>\r\n', '', '', 1, 1, 'CURIOSIDADES');
+(20, 11, 'NEOKIRA', '<p><strong>Neokira</strong> es una banda de hardcore de la escena actual de Buenos Aires que se mueve dentro de circuitos underground y autogestionados. Su propuesta se ubica en una línea pesada del género, con una fuerte influencia del beatdown y del hardcore moderno.</p>\r\n\r\n<p>En lo musical, la banda se caracteriza por riffs densos, breakdowns marcados y estructuras pensadas para el impacto en vivo. Sus temas son directos y agresivos, con cambios de ritmo que generan momentos de alta intensidad, especialmente en el contexto de recitales.</p>\r\n\r\n<p>En cuanto a lo lírico, Neokira mantiene un enfoque frontal, con letras que transmiten bronca, tensión y una mirada crítica, alineadas con la tradición expresiva del hardcore. La actitud y la energía son elementos centrales en su identidad.</p>\r\n\r\n<p>Dentro de la escena, la banda forma parte de una nueva camada que mantiene activo el circuito local, participando en fechas independientes y compartiendo espacios con otros proyectos del género, contribuyendo a la continuidad y renovación del hardcore en Buenos Aires.</p>', 'hardcore_neokira.jpg', 'https://neokira.bandcamp.com/', 1, 1, 'NEOKIRA'),
+(21, 11, 'CADENAS', '<p><strong>Cadenas Cru</strong> es una banda de hardcore de Buenos Aires que se ubica dentro de la vertiente más cruda y directa del género, con un sonido que apunta a lo agresivo y sin adornos.</p>\r\n\r\n<p>Musicalmente, trabajan sobre bases de hardcore punk rápido, con riffs filosos y estructuras cortas, priorizando la velocidad y la urgencia por sobre lo técnico. Sus temas suelen ser compactos, intensos y pensados para mantener la energía constante en vivo, sin demasiadas pausas ni desarrollos largos.</p>\r\n\r\n<p>En los shows, eso se traduce en una descarga continua: pogos rápidos, cercanía total entre banda y público, y una dinámica donde todo ocurre al mismo nivel, sin separación marcada entre quienes tocan y quienes están abajo.</p>\r\n\r\n<p>A nivel lírico, mantienen una línea directa y confrontativa, con letras que expresan bronca, inconformismo y tensiones cotidianas, usando un lenguaje simple y sin vueltas, muy en la tradición del hardcore más clásico.</p>\r\n\r\n<p>Dentro de la escena, Cadenas Cru forma parte del circuito DIY, participando en fechas independientes y compartiendo espacios con otras bandas del palo, sosteniendo una propuesta que prioriza la intensidad, la simpleza y la honestidad.</p>', 'hardcore_cadenas_cru.jpg', 'https://cadenascru.bandcamp.com/album/s-t-2023', 1, 2, 'CADENAS');
 
 -- --------------------------------------------------------
 
@@ -214,7 +215,7 @@ CREATE TABLE `raiz` (
 --
 
 INSERT INTO `raiz` (`ID_raiz`, `nombre`, `abreviatura`, `resumen`, `definicion`, `logo`, `orden`, `activo`, `color`, `bkg_color`, `nombre_sitio`, `nombre_institucion`, `fuente`, `color_gral`, `bkg_color_gral`) VALUES
-(0, 'Guitarras', 'G', 'Viejas y nuevas - Electricas -Acústicas                                                                                                                                                                         ', 'Este sitio fué pensado para recopilar toda la variada información referida a todo tipo de guitarras.<br><br>\r\n\r\n<li>Cual es el sentido de incorporar estos cambios ? </li>\r\n<li>Cual es la ética que domina estos cambios ?</li> \r\n<li>Cuales son los beneficios y quienes disfrutan de esos beneficios ?</li>\r\n<li>Podemos acceder a estos beneficios ?</li>\r\n<li>Que tenemos que cambiar para implementar estas tendencias ?</li><br>                                                                                                                                                                                                                                                                                                         ', 'logo_p40.png', 1, 1, '#ffffff', '#000000', 'Guitarras del Mundo', 'Proyectos Personales', 'calibri', '#f70428', '#dbdbdb');
+(0, 'Escena underground en Argentina', 'Unde', 'Bandas independientes de diversos géneros                 ', 'Este sitio fue creado para difundir la escena underground actual en Argentina.           ', 'under.jpg', 1, 1, '#ffffff', '#000000', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -261,7 +262,8 @@ CREATE TABLE `secciones` (
 --
 
 INSERT INTO `secciones` (`id_seccion`, `nombre`, `orden`, `id_tecnologia`, `enlace`, `Activo`, `enlace_cms`) VALUES
-(2, 'HISTORIA ', 1, 1, 'historia.php', 1, 'historia_cms.php');
+(70, 'NEOKIRA', 1, 11, 'comodin.php', 1, 'comodin_cms.php'),
+(71, 'CADENAS', 2, 11, 'comodin.php', 1, 'comodin_cms.php');
 
 -- --------------------------------------------------------
 
@@ -281,6 +283,13 @@ CREATE TABLE `tecnologias` (
   `color` varchar(24) NOT NULL DEFAULT 'BLACK',
   `bkg_color` varchar(24) NOT NULL DEFAULT 'WHITE'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `tecnologias`
+--
+
+INSERT INTO `tecnologias` (`ID_tecnologia`, `nombre`, `abreviatura`, `resumen`, `definicion`, `logo`, `orden`, `activo`, `color`, `bkg_color`) VALUES
+(11, 'Hardcore', 'HC', 'Movimiento de la escena                            ', '           <p>La escena hardcore actual en Buenos Aires se define por su intensidad física y emocional, donde la experiencia en vivo es el núcleo de todo. Los shows se caracterizan por pogos agresivos, stage diving, micrófono compartido y una interacción constante entre banda y público, borrando la distancia tradicional del escenario.</p>\r\n\r\n<p>En lo musical, predominan estructuras rápidas, riffs pesados y breakdowns marcados que apuntan a la energía colectiva del vivo. Dentro de la misma escena conviven variantes como el hardcore punk más directo, el beatdown con tempos más densos y pesados, y cruces con metalcore, generando un sonido contundente y orientado al impacto.</p>\r\n\r\n<p>Un rasgo central es la ética hardcore: una forma de entender la música como canal de expresión urgente y frontal. Las letras suelen abordar bronca, frustración, identidad, conflictos personales y problemáticas sociales, con un tono directo, sin metáforas excesivas. La actitud importa tanto como el sonido.</p>\r\n\r\n<p>El público no es pasivo: participa activamente en cada tema, canta, se mueve y forma parte del espectáculo. Al mismo tiempo, existe una conciencia cada vez más presente sobre los límites dentro de esa intensidad, con discusiones internas sobre cuidado, respeto y convivencia en el espacio del show.</p>\r\n\r\n<p>En conjunto, el hardcore en Buenos Aires se manifiesta como una escena donde la música, el cuerpo y la actitud están completamente entrelazados, generando una experiencia colectiva basada en la energía, la catarsis y la identidad compartida.</p>                      ', 'hardcore.jpg', 1, 1, '#ffffff', '#000000');
 
 -- --------------------------------------------------------
 
@@ -425,7 +434,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `comodin`
 --
 ALTER TABLE `comodin`
-  MODIFY `ID_comodin` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `ID_comodin` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `concursos`
@@ -485,13 +494,13 @@ ALTER TABLE `recursos`
 -- AUTO_INCREMENT de la tabla `secciones`
 --
 ALTER TABLE `secciones`
-  MODIFY `id_seccion` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id_seccion` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT de la tabla `tecnologias`
 --
 ALTER TABLE `tecnologias`
-  MODIFY `ID_tecnologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ID_tecnologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
